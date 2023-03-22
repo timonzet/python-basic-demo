@@ -42,9 +42,9 @@ def filter_numbers(numbers, filter_type):
     """
     if filter_type == 'odd':
         return [number for number in numbers if number % 2 != 0]
-    elif filter_type == 'even':
+    if filter_type == 'even':
         return [number for number in numbers if number % 2 == 0]
-    elif filter_type == 'prime':
+    if filter_type == 'prime':
         return is_prime(numbers)
 
 
