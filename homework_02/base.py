@@ -15,16 +15,15 @@ class Vehicle(ABC):
 
     def start(self):
         if Vehicle.started is not True:
-            if Vehicle.fuel > 0:
+            if self.fuel > 0:
                 Vehicle.started = True
             else:
                 raise LowFuelError('Нет топлива!')
 
 
     def move(self):
-        if Vehicle.fuel_consumption / 100 * Vehicle.weight <= Vehicle.fuel:
-            Vehicle.fuel = Vehicle.fuel_consumption / 100 * Vehicle.weight
+        if self.fuel_consumption / 100 * self.weight <= self.fuel and Vehicle.started:
+            self.fuel = self.fuel_consumption / 100 * self.weight
         else:
             raise NotEnoughFuel('Топлива не хватит!')
-
 
