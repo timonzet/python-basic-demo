@@ -4,7 +4,6 @@
 - NotEnoughFuel
 - CargoOverload
 """
-from homework_02.base import Vehicle
 
 
 class LowFuelError(Exception):
