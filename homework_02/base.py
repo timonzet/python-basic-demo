@@ -4,8 +4,8 @@ from homework_02.exceptions import LowFuelError, NotEnoughFuel
 
 class Vehicle(ABC):
     weight = 200
-    started = True
-    fuel = 50
+    started = False
+    fuel = 80
     fuel_consumption = 15
 
     def __init__(self, weight, fuel, fuel_consumption):
@@ -14,18 +14,17 @@ class Vehicle(ABC):
         self.fuel_consumption = fuel_consumption
 
     def start(self):
-        if not Vehicle.started:
-            if self.fuel > 0:
+        if Vehicle.started is not True:
+            if Vehicle.fuel > 0:
                 Vehicle.started = True
             else:
                 raise LowFuelError('Нет топлива!')
 
 
     def move(self):
-        if  self.fuel_consumption / 100 * self.weight <= self.fuel:
-            self.fuel = self.fuel_consumption / 100 * self.weight
+        if Vehicle.fuel_consumption / 100 * Vehicle.weight <= Vehicle.fuel:
+            Vehicle.fuel = Vehicle.fuel_consumption / 100 * Vehicle.weight
         else:
             raise NotEnoughFuel('Топлива не хватит!')
-
 
 
