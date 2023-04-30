@@ -5,7 +5,6 @@ __pycache__
 .Python
 env
 venv
-poetry.lock
 pip-log.txt
 pip-delete-this-directory.txt
 .tox

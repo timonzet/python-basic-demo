@@ -1,11 +1,10 @@
-#
 FROM python:3.10-bullseye
 
 WORKDIR /app
 
 RUN pip install --upgrade pip
 RUN pip install "poetry==1.4.2"
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml ./
 RUN poetry config virtualenvs.create false --local
 RUN poetry install --no-ansi --only main
 
