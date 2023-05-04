@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN pip install --upgrade pip
 RUN pip install "poetry==1.4.2"
-COPY pyproject.toml ./
+COPY pyproject.toml poetry.lock ./
 RUN poetry config virtualenvs.create false --local
 RUN poetry install --no-ansi --only main
 
