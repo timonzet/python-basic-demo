@@ -33,7 +33,7 @@ async def create_users(session: AsyncSession, users_data: list[dict]):
     for user in users_data:
         new_user = User(
             name=user["name"],
-            username=user["name"],
+            username=user["username"],
             email=user["email"],
         )
 
