@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Users list
+{% endblock %}
+{% from 'macros/show-flashed-messages.html' import show_flashed_messages_with_categories %}
+{% block body %}
+    <h2>Hello Users list</h2>
+
+    {{ show_flashed_messages_with_categories() }}
+
+    {% if users %}
+        <h3>Users:</h3>
+        <ul class="list-group">
+            {% for user in users %}
+                <li class="list-group-item">
+                    <a class="btn btn-link h-100 w-100 p-0 text-start text-decoration-none"
+                       href="{{ url_for('users_app.details', user_id=user.id) }}">
+                        {{ user.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No users yet.</h3>
+    {% endif %}
+
+    <div class="my-3"><a class="no-underline" href="{{ url_for('users_app.add') }}">Add new</a></div>
+    <form method="POST" action="/users/">
+        <div class="my-3">
+            <button class="btn underline active hide-after-click" name="csrf_token" value="{{ csrf_token() }}">Create 10
+                users
+            </button>
+        </div>
+    </form>
+
+{% endblock %}
+<scripts src="static/js/hide.js"></scripts>
