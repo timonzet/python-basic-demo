@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+    Homework
+{% endblock %}
+
+{% block body %}
+    <ul>
+    <li>
+        <a class="dropdown-item" href="{% url 'homework:posts' %}">Posts List</a>
+    </li>
+    </ul>
+{% endblock %}
