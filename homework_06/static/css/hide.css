@@ -1,0 +1,7 @@
+.hide-after-click {
+    display: block;
+}
+
+.hide-after-click.hide {
+    display: none;
+}
